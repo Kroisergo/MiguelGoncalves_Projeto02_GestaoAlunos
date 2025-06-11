@@ -4,13 +4,18 @@
 # Projeto: Sistema de Gestão de Alunos Laravel
 Este projeto é uma aplicação web desenvolvida com o framework Laravel para gerir os registos de alunos.
 
-<p align="center">
-</p>
-
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Funcionalidades Principais:
+- **Gestão de Alunos (CRUD):**
+    - Criação, listagem, edição e eliminação de registos de alunos.
+    * Campos: Nome Completo, Data de Nascimento, Email, Número de Telemóvel, Curso, Número de Matrícula, Ano de Inscrição, Status.
+    * Validação de dados.
+    * Filtros por Curso, Status e Idade.
+    * Exportação de dados para Excel.
+* **Sistema de Autenticação:** Login, Registo e Recuperação de Password (via Laravel Breeze).
+* **Sistema de Autorização por Roles:**
+    * `admin`: Acesso completo (CRUD, Exportação).
+    * `user`: Acesso à criação e consulta de alunos.
+    * Controlo de acesso via Gates e middlewares.
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
