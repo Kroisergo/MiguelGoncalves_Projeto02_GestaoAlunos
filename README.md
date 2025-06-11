@@ -31,6 +31,7 @@ Este projeto é uma aplicação web desenvolvida com o framework Laravel para ge
 * TailwindCSS;
 * Bootstrap 5;
 * MySQL;
+* XAMPP (Somente para ativação do MySQL);
 * Laravel Herd (para servir a aplicação);
 * TablePlus (Base de Dados);
 * Git e GitHub.
@@ -47,7 +48,7 @@ Deve seguir estes passos para colocar o projeto a funcionar na sua máquina loca
 2.  **Configurar a Base de Dados (MySQL via XAMPP):**
     * Certifique-se de que o **XAMPP** está instalado. Vamos usar apenas o **MySQL do XAMPP**.
     * **Importante (Windows):** Se o MySQL não iniciar devido à porta 3306 estar ocupada:
-        1.  Abra o CMD (Prompt de Comando) como **Administrador**.
+        * 1-  Abra o CMD (Prompt de Comando) como **Administrador**.
         2.  Pesquise o PID do processo que está a usar a porta 3306:
             ```bash
             netstat -ano | findstr :3306
