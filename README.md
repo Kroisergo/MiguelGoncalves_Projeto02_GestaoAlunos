@@ -45,22 +45,23 @@ Deve seguir estes passos para colocar o projeto a funcionar na sua máquina loca
     git clone [https://github.com/TeuUtilizadorGitHub/TeuNomeDoRepositorio.git](https://github.com/TeuUtilizadorGitHub/TeuNomeDoRepositorio.git)
     cd TeuNomeDoRepositorio
     ```
-2.  **Configurar a Base de Dados (MySQL via XAMPP):**
-    * Certifique-se de que o **XAMPP** está instalado. Vamos usar apenas o **MySQL do XAMPP**.
-    * **Importante (Windows):** Se o MySQL não iniciar devido à porta 3306 estar ocupada:
+2.  **Configurar a Base de Dados (MySQL no XAMPP):**
+    * Certificar de que o **XAMPP** está instalado. Vamos usar apenas o **MySQL do XAMPP**.
+    * **Importante (Windows):** Se o MySQL não iniciar devido à porta 3306 estar ocupada, deve fazer o seguinte:
         * 1-  Abra o CMD (Prompt de Comando) como **Administrador**.
-        2.  Pesquise o PID do processo que está a usar a porta 3306:
+        * 2-  Pesquise o PID do processo que está a usar a porta 3306:
             ```bash
             netstat -ano | findstr :3306
             ```
-        3.  Identifique o número do PID (última coluna, ex: `1234`).
-        4.  Termine o processo usando esse PID:
+        * 3-  Identifique o número do PID (última coluna, ex: `1234`).
+        * 4-  Termine o processo usando esse PID (Substitua `1234` pelo PID que encontrou):
             ```bash
             taskkill /PID 1234 /F
             ```
-            (Substitua `1234` pelo PID que encontrou).
-        5.  Agora pode iniciar o MySQL no painel de controlo do XAMPP.
-    * Crie uma nova base de dados no MySQL (pode usar o phpMyAdmin do XAMPP ou o **TablePlus**). Anote o nome da BD, username e password.
+        * 5-  Agora pode iniciar o MySQL no painel de controlo do XAMPP.
+        <br>
+    * Agora crie uma nova base de dados no MySQL no (**TablePlus**). Anote o nome da BD, username e password.
+    * Ou pode abrir a aplicação **Herd** -> **Sites** -> **Open** (Onde diz TablePlus).
     * **Configure o ficheiro `.env`:**
         * Crie o ficheiro `.env` a partir do `.env.example`:
             ```bash
@@ -71,29 +72,37 @@ Deve seguir estes passos para colocar o projeto a funcionar na sua máquina loca
             DB_CONNECTION=mysql
             DB_HOST=127.0.0.1
             DB_PORT=3306
-            DB_DATABASE=o_nome_da_tua_bd # <-- SUBSTITUIR
-            DB_USERNAME=o_teu_user_bd    # <-- SUBSTITUIR
-            DB_PASSWORD=a_tua_password_bd # <-- SUBSTITUIR
+            DB_DATABASE=gestao_alunos
+            DB_USERNAME=root
+            DB_PASSWORD=
             ```
         * Gere a chave da aplicação:
             ```bash
             php artisan key:generate
             ```
 
+
 3.  **Instale as dependências do Composer:**
     ```bash
     composer install
     ```
+
+
 4.  **Execute as migrations e seeders (para criar tabelas e dados iniciais, incluindo utilizadores admin/user):**
     ```bash
     php artisan migrate --seed
     ```
+
+
 5.  **Instale as dependências do NPM e compile os assets:**
     ```bash
     npm install
-    npm run dev # Para desenvolvimento (e manter o servidor de assets a correr)
-    # ou npm run build # Para produção (compila e sai)
+    #Não será necessário o 'npm run dev', porque o programa corre igual.
+    npm run dev #Para desenvolvimento (e manter o servidor de assets a correr)
+    #ou npm run build #Para produção (compila e sai)
     ```
+
+
 6.  **Inicie o servidor de desenvolvimento com Laravel Herd:**
     * Certifique-se de que tem o **Laravel Herd** instalado e configurado para servir a pasta raiz do projeto.
     * Acesse a aplicação no navegador através do domínio do Herd (ex: `http://workopia.test` ou o que tenhas configurado para o teu projeto no Herd).
